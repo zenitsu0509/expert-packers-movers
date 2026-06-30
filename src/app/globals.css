@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: oklch(34% 0.11 255);
+  --color-primary-foreground: oklch(100% 0 0);
+  --color-secondary: oklch(72% 0.19 47);
+  --color-secondary-foreground: oklch(100% 0 0);
+  
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(24% 0.04 260);
+  --color-surface: oklch(98% 0.005 240);
+  --color-card: oklch(100% 0 0);
+  --color-card-foreground: oklch(24% 0.04 260);
+  --color-popover: oklch(100% 0 0);
+  --color-popover-foreground: oklch(24% 0.04 260);
+  --color-muted: oklch(96% 0.005 240);
+  --color-muted-foreground: oklch(50% 0.02 260);
+  --color-accent: oklch(96% 0.02 50);
+  --color-accent-foreground: oklch(34% 0.11 255);
+  --color-destructive: oklch(60% 0.22 27);
+  --color-destructive-foreground: oklch(100% 0 0);
+  --color-border: oklch(92% 0.01 250);
+  --color-input: oklch(92% 0.01 250);
+  --color-ring: oklch(72% 0.19 47);
+
+  --radius-lg: 0.875rem;
+  --radius-md: calc(0.875rem - 2px);
+  --radius-sm: calc(0.875rem - 4px);
+  --radius-xl: calc(0.875rem + 4px);
+  --radius-2xl: calc(0.875rem + 8px);
+  --radius-3xl: calc(0.875rem + 12px);
+
+  --shadow-soft: 0 10px 30px -12px oklch(34% 0.11 255);
+  --shadow-glow: 0 20px 60px -20px oklch(72% 0.19 47);
+  --shadow-card: 0 8px 24px -12px oklch(0% 0 0 / 0.15);
+
+  --animate-wheel: wheelSpin 0.6s linear infinite;
+  --animate-truck-bounce: truckBounce 0.7s ease-in-out infinite;
+  --animate-headlight: headlightPulse 2.2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes wheelSpin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes truckBounce {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-1.5px); }
+    75% { transform: translateY(1px); }
+  }
+  @keyframes roadDash {
+    0% { background-position: 0 0; }
+    to { background-position: -200px 0; }
+  }
+  @keyframes cloudDrift {
+    0% { transform: translate(-5%); }
+    to { transform: translate(105%); }
+  }
+  @keyframes dust {
+    0% { opacity: 0.5; transform: translate(0) scale(0.6); }
+    to { opacity: 0; transform: translate(-40px, -10px) scale(1.4); }
+  }
+  @keyframes headlightPulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 0.9; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+}
+
+@utility glass {
+  background-color: color-mix(in oklab, var(--color-background) 65%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 8%, transparent);
+}
+
+@utility card-soft {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+
+  &:hover {
+    box-shadow: 0 24px 48px -24px color-mix(in oklab, var(--color-primary) 35%, transparent);
+    transform: translateY(-6px);
+    border-color: color-mix(in oklab, var(--color-secondary) 50%, var(--color-border));
+  }
+}
+
+@utility btn-accent {
+  background-image: linear-gradient(135deg, var(--color-secondary), oklch(72% 0.18 50));
+  color: var(--color-secondary-foreground);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 20px 60px -20px color-mix(in oklab, var(--color-secondary) 45%, transparent);
+    transform: translateY(-2px);
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Custom dashed lanes style */
+.road-lanes {
+  background-image: linear-gradient(90deg, #fff 50%, transparent 50%);
+  background-size: 40px 100%;
+  animation: roadDash 1s linear infinite;
+}
+
+/* Clouds background shape or animation */
+.cloud-drift-1 {
+  animation: cloudDrift 50s linear infinite;
+}
+.cloud-drift-2 {
+  animation: cloudDrift 35s linear infinite;
+  animation-delay: -10s;
+}
+.cloud-drift-3 {
+  animation: cloudDrift 60s linear infinite;
+  animation-delay: -25s;
+}
+.cloud-drift-4 {
+  animation: cloudDrift 40s linear infinite;
+  animation-delay: -5s;
+}
+.cloud-drift-5 {
+  animation: cloudDrift 45s linear infinite;
+  animation-delay: -15s;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}
