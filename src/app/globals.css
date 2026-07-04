@@ -4,26 +4,26 @@
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 
-  --color-primary: oklch(34% 0.11 255);
-  --color-primary-foreground: oklch(100% 0 0);
+  --color-primary: oklch(65% 0.15 255);
+  --color-primary-foreground: oklch(14% 0.02 260);
   --color-secondary: oklch(72% 0.19 47);
-  --color-secondary-foreground: oklch(100% 0 0);
+  --color-secondary-foreground: oklch(14% 0.02 260);
   
-  --color-background: oklch(100% 0 0);
-  --color-foreground: oklch(24% 0.04 260);
-  --color-surface: oklch(98% 0.005 240);
-  --color-card: oklch(100% 0 0);
-  --color-card-foreground: oklch(24% 0.04 260);
-  --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: oklch(24% 0.04 260);
-  --color-muted: oklch(96% 0.005 240);
-  --color-muted-foreground: oklch(50% 0.02 260);
-  --color-accent: oklch(96% 0.02 50);
-  --color-accent-foreground: oklch(34% 0.11 255);
+  --color-background: oklch(14% 0.02 260);
+  --color-foreground: oklch(98% 0 0);
+  --color-surface: oklch(18% 0.02 260);
+  --color-card: oklch(18% 0.02 260);
+  --color-card-foreground: oklch(98% 0 0);
+  --color-popover: oklch(18% 0.02 260);
+  --color-popover-foreground: oklch(98% 0 0);
+  --color-muted: oklch(22% 0.02 260);
+  --color-muted-foreground: oklch(70% 0.02 260);
+  --color-accent: oklch(22% 0.02 260);
+  --color-accent-foreground: oklch(98% 0 0);
   --color-destructive: oklch(60% 0.22 27);
-  --color-destructive-foreground: oklch(100% 0 0);
-  --color-border: oklch(92% 0.01 250);
-  --color-input: oklch(92% 0.01 250);
+  --color-destructive-foreground: oklch(98% 0 0);
+  --color-border: oklch(26% 0.02 260);
+  --color-input: oklch(26% 0.02 260);
   --color-ring: oklch(72% 0.19 47);
 
   --radius-lg: 0.875rem;
@@ -33,9 +33,9 @@
   --radius-2xl: calc(0.875rem + 8px);
   --radius-3xl: calc(0.875rem + 12px);
 
-  --shadow-soft: 0 10px 30px -12px oklch(34% 0.11 255);
-  --shadow-glow: 0 20px 60px -20px oklch(72% 0.19 47);
-  --shadow-card: 0 8px 24px -12px oklch(0% 0 0 / 0.15);
+  --shadow-soft: 0 10px 30px -12px oklch(0% 0 0 / 0.5);
+  --shadow-glow: 0 20px 60px -20px oklch(72% 0.19 47 / 0.4);
+  --shadow-card: 0 8px 24px -12px oklch(0% 0 0 / 0.5);
 
   --animate-wheel: wheelSpin 0.6s linear infinite;
   --animate-truck-bounce: truckBounce 0.7s ease-in-out infinite;

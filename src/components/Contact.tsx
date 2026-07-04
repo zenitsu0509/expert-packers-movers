@@ -141,7 +141,7 @@ export default function Contact() {
           ) : (
             <form onSubmit={handleSubmit} className="card-soft grid gap-4 p-6 md:p-8 bg-card">
               {errorMsg && (
-                <div className="p-3 text-xs font-semibold text-red-600 bg-red-50 rounded-xl border border-red-200">
+                <div className="p-3 text-xs font-semibold text-destructive bg-destructive/10 rounded-xl border border-destructive/20">
                   {errorMsg}
                 </div>
               )}

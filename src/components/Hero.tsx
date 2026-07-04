@@ -264,7 +264,7 @@ export default function Hero() {
             </a>
             <a
               href="tel:+919999999999"
-              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/70 px-7 py-3.5 text-sm font-semibold text-primary backdrop-blur transition hover:bg-white"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/70 px-7 py-3.5 text-sm font-semibold text-primary backdrop-blur transition hover:bg-background"
             >
               <Phone className="h-4 w-4" /> Call Now
             </a>
