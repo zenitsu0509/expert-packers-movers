@@ -77,55 +77,65 @@ export default function HowItWorks() {
         </div>
 
         {/* Timeline */}
-        <div className="relative mt-14">
-          {/* Vertical central line (desktop) */}
-          <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/30 to-transparent lg:block" />
+        <div className="relative mt-16 w-full max-w-3xl mx-auto h-[1300px] sm:h-[1000px] lg:h-[800px]">
+          {/* SVG Snake Pathway */}
+          <svg
+            className="absolute inset-0 h-full w-full pointer-events-none"
+            preserveAspectRatio="none"
+            viewBox="0 0 100 100"
+          >
+            <path
+              d="M 15 8 C 50 8, 50 24.8, 85 24.8 C 50 24.8, 50 41.6, 15 41.6 C 50 41.6, 50 58.4, 85 58.4 C 50 58.4, 50 75.2, 15 75.2 C 50 75.2, 50 92, 85 92"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="0.4"
+              strokeDasharray="1 1"
+              className="text-primary/40"
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
 
-          <ul className="grid gap-8 lg:gap-12">
-            {steps.map((step, idx) => {
-              const isLeft = idx % 2 === 0;
+          {/* Nodes & Cards */}
+          {steps.map((step, idx) => {
+            const isLeft = idx % 2 === 0;
+            // Calculate Y positions (8, 24.8, 41.6, 58.4, 75.2, 92)
+            const yPos = 8 + idx * 16.8;
+            const xPos = isLeft ? 15 : 85;
 
-              return (
-                <li
-                  key={idx}
-                  className={`grid items-center gap-4 lg:grid-cols-[1fr_auto_1fr] transition-all duration-700 ease-out ${
-                    isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"
-                  }`}
-                  style={{ transitionDelay: `${idx * 100}ms` }}
+            return (
+              <div
+                key={idx}
+                className={`absolute w-full transition-all duration-1000 ease-out ${
+                  isInView ? "opacity-100" : "opacity-0 translate-y-8"
+                }`}
+                style={{
+                  top: `${yPos}%`,
+                  transitionDelay: `${idx * 150}ms`,
+                }}
+              >
+                {/* The Circle */}
+                <div
+                  className="absolute z-10 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-soft"
+                  style={{ left: `${xPos}%` }}
                 >
-                  {/* Left Column (Left Card or empty desktop placeholder) */}
-                  {isLeft ? (
-                    <div className="card-soft p-5 lg:text-right">
-                      <h3 className="text-lg font-bold text-primary">{step.title}</h3>
-                      <p className="mt-1 text-sm text-foreground/70">{step.desc}</p>
-                    </div>
-                  ) : (
-                    <div className="hidden lg:block" />
-                  )}
+                  {step.icon}
+                  <span className="absolute -bottom-1 -right-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground shadow-sm">
+                    {step.num}
+                  </span>
+                </div>
 
-                  {/* Middle Column (Icon Circle) */}
-                  <div className="order-1 mx-auto lg:order-2">
-                    <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-soft">
-                      {step.icon}
-                      <span className="absolute -bottom-1 -right-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground">
-                        {step.num}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Right Column (Right Card or empty desktop placeholder) */}
-                  {!isLeft ? (
-                    <div className="card-soft p-5">
-                      <h3 className="text-lg font-bold text-primary">{step.title}</h3>
-                      <p className="mt-1 text-sm text-foreground/70">{step.desc}</p>
-                    </div>
-                  ) : (
-                    <div className="hidden lg:block" />
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+                {/* The Card */}
+                <div
+                  className={`absolute -translate-y-1/2 w-[65%] sm:w-[70%] card-soft p-4 sm:p-5 ${
+                    isLeft ? "left-[25%] sm:left-[20%]" : "right-[25%] sm:right-[20%] text-right"
+                  }`}
+                >
+                  <h3 className="text-base sm:text-lg font-bold text-primary">{step.title}</h3>
+                  <p className="mt-1 text-xs sm:text-sm text-foreground/70">{step.desc}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

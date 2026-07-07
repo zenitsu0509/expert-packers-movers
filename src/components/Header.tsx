@@ -41,16 +41,12 @@ export default function Header() {
       >
         <nav className="container mx-auto flex items-center justify-between px-6">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 font-extrabold text-primary">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-soft">
-              <Truck className="h-5 w-5" />
-            </span>
-            <span className="leading-tight">
-              <span className="block text-base">Expert</span>
-              <span className="block -mt-1 text-[10px] font-bold uppercase tracking-widest text-secondary">
-                Packers &amp; Movers
-              </span>
-            </span>
+          <a href="#home" className="flex items-center">
+            <img 
+              src="/logo.box.jpeg" 
+              alt="Expert Packers and Movers Logo" 
+              className="h-12 md:h-14 w-auto object-contain" 
+            />
           </a>
 
           {/* Desktop Navigation */}

@@ -81,7 +81,7 @@ export default function Contact() {
                 <Phone className="h-4 w-4" />
               </span>
               <div>
-                <p className="font-semibold text-primary">+91 99999 99999</p>
+                <p className="font-semibold text-primary">7500379402</p>
                 <p className="text-muted-foreground">24×7 customer support</p>
               </div>
             </li>
@@ -92,7 +92,7 @@ export default function Contact() {
                 <Mail className="h-4 w-4" />
               </span>
               <div>
-                <p className="font-semibold text-primary">hello@expertmovers.in</p>
+                <p className="font-semibold text-primary break-all">expertpackersandmover@gmail.com</p>
                 <p className="text-muted-foreground">We reply within an hour</p>
               </div>
             </li>
@@ -103,8 +103,8 @@ export default function Contact() {
                 <MapPin className="h-4 w-4" />
               </span>
               <div>
-                <p className="font-semibold text-primary">Plot 21, Logistics Park</p>
-                <p className="text-muted-foreground">Mumbai, Maharashtra 400001</p>
+                <p className="font-semibold text-primary">Rudrapur</p>
+                <p className="text-muted-foreground">Uttarakhand, India</p>
               </div>
             </li>
           </ul>
@@ -113,7 +113,7 @@ export default function Contact() {
           <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-card">
             <iframe
               title="Office location"
-              src="https://www.google.com/maps?q=Mumbai&amp;output=embed"
+              src="https://www.google.com/maps?q=Rudrapur&amp;output=embed"
               loading="lazy"
               className="h-64 w-full border-0"
               allowFullScreen

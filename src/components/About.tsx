@@ -97,9 +97,8 @@ export default function About() {
       <div className="container mx-auto grid items-center gap-12 px-6 lg:grid-cols-2">
         {/* Left: Graphic Illustration */}
         <div
-          className={`relative transition-all duration-1000 ease-out ${
-            isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-          }`}
+          className={`relative transition-all duration-1000 ease-out ${isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
         >
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-2 shadow-card">
             <svg viewBox="0 0 500 360" className="h-auto w-full rounded-2xl">
@@ -138,9 +137,8 @@ export default function About() {
 
         {/* Right: Text Content */}
         <div
-          className={`transition-all duration-1000 ease-out delay-100 ${
-            isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-          }`}
+          className={`transition-all duration-1000 ease-out delay-100 ${isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
         >
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
             About Expert Movers

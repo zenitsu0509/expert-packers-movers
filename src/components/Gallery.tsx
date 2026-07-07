@@ -26,14 +26,14 @@ export default function Gallery() {
   }, []);
 
   const items = [
-    { title: "Apartment move — Mumbai", color: "#0B3C6D", h: 220 },
-    { title: "Office relocation — Pune", color: "#FF7A00", h: 320 },
-    { title: "Car transport — Delhi", color: "#1e5a9e", h: 260 },
-    { title: "Warehouse storage", color: "#2c2f36", h: 200 },
-    { title: "Premium packing crew", color: "#FF9A3C", h: 300 },
-    { title: "Villa shifting — Bangalore", color: "#0B3C6D", h: 240 },
-    { title: "Interstate fleet", color: "#1a1c20", h: 280 },
-    { title: "Bike transport", color: "#FF7A00", h: 220 },
+    { title: "Apartment move — Mumbai", image: "/box1.jpg", h: 220 },
+    { title: "Office relocation — Pune", image: "/box2.jpg", h: 320 },
+    { title: "Car transport — Delhi", image: "/box3.jpg", h: 260 },
+    { title: "Warehouse storage", image: "/box4.jpg", h: 200 },
+    { title: "Premium packing crew", image: "/box5.avif", h: 300 },
+    { title: "Villa shifting — Bangalore", image: "/box6.jpg", h: 240 },
+    { title: "Interstate fleet", image: "/box7.avif", h: 280 },
+    { title: "Bike transport", image: "/generated_moving_box.png", h: 220 },
   ];
 
   return (
@@ -66,26 +66,19 @@ export default function Gallery() {
               aria-label={item.title}
             >
               <div
-                className="relative h-full w-full transition-transform duration-500 group-hover:scale-110 flex items-center justify-center"
-                style={{
-                  background: `linear-gradient(135deg, ${item.color}, ${item.color}cc)`,
-                }}
+                className="relative h-full w-full transition-transform duration-500 group-hover:scale-110 flex items-center justify-center bg-gray-100"
               >
-                {/* Visual texture radial gradient */}
-                <div
-                  className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_60%)] pointer-events-none"
-                  aria-hidden="true"
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
 
                 {/* Micro zoom icon indicator on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 bg-white/25 rounded-full p-2.5 backdrop-blur-sm">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 bg-black/50 rounded-full p-2.5 backdrop-blur-sm">
                   <ZoomIn className="h-6 w-6 text-white" />
                 </div>
-
-                {/* Caption bar */}
-                <span className="absolute bottom-3 left-3 right-3 rounded-lg bg-black/40 px-3 py-1.5 text-left text-xs font-semibold text-white opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
-                  {item.title}
-                </span>
               </div>
             </button>
           ))}
@@ -95,41 +88,28 @@ export default function Gallery() {
       {/* Lightbox Modal Overlay */}
       {selectedIdx !== null && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in-0 duration-300"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md animate-in fade-in-0 duration-300"
           onClick={() => setSelectedIdx(null)}
         >
           {/* Modal Container */}
           <div
-            className="relative w-full max-w-4xl h-[70vh] rounded-3xl overflow-hidden shadow-2xl border border-white/10 animate-in zoom-in-95 duration-300"
-            style={{
-              background: `linear-gradient(135deg, ${items[selectedIdx].color}, ${items[selectedIdx].color}cc)`,
-            }}
+            className="relative w-full h-full flex items-center justify-center animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Radial glow background */}
-            <div
-              className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_60%)] pointer-events-none"
-              aria-hidden="true"
+            <img
+              src={items[selectedIdx].image}
+              alt={items[selectedIdx].title}
+              className="max-w-full max-h-full object-contain"
             />
 
             {/* Close Button */}
             <button
               onClick={() => setSelectedIdx(null)}
-              className="absolute right-4 top-4 z-50 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur hover:bg-white/30 transition cursor-pointer"
+              className="absolute right-6 top-6 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition cursor-pointer border border-white/20 shadow-xl"
               aria-label="Close"
             >
-              <X className="h-5 w-5" />
+              <X className="h-6 w-6" />
             </button>
-
-            {/* Modal Text Content */}
-            <div className="absolute bottom-8 left-8 right-8">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">
-                Gallery Showcase
-              </span>
-              <p className="mt-1 text-2xl md:text-3xl font-extrabold text-white">
-                {items[selectedIdx].title}
-              </p>
-            </div>
           </div>
         </div>
       )}
