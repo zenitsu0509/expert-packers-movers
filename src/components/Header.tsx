@@ -45,7 +45,7 @@ export default function Header() {
             <img 
               src="/logo.box.jpeg" 
               alt="Expert Packers and Movers Logo" 
-              className="h-12 md:h-14 w-auto object-contain" 
+              className="h-12 md:h-14 aspect-square rounded-full object-cover" 
             />
           </a>
 
