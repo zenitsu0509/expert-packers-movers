@@ -141,12 +141,12 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
-              <li>+91 99999 99999</li>
-              <li>hello@expertmovers.in</li>
+              <li>+91 75003 79402</li>
+              <li>expertpackersandmover@gmail.com</li>
               <li>
                 Plot 21, Logistics Park,
                 <br />
-                Mumbai, MH 400001
+                Rudrapur, Uttarakhand 263153
               </li>
             </ul>
           </div>
@@ -164,7 +164,7 @@ export default function Footer() {
       <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/919999999999"
+          href="https://wa.me/917500379402"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
@@ -175,7 +175,7 @@ export default function Footer() {
 
         {/* Call Button */}
         <a
-          href="tel:+919999999999"
+          href="tel:+917500379402"
           aria-label="Call"
           className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-glow transition hover:-translate-y-0.5 hover:scale-105"
         >

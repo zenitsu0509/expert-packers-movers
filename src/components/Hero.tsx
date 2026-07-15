@@ -263,7 +263,7 @@ export default function Hero() {
               Get Free Quote <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="tel:+919999999999"
+              href="tel:+917500379402"
               className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/70 px-7 py-3.5 text-sm font-semibold text-primary backdrop-blur transition hover:bg-background"
             >
               <Phone className="h-4 w-4" /> Call Now
