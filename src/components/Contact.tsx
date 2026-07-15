@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { sendContactEmail } from "@/app/actions";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Basic validation
@@ -40,23 +41,31 @@ export default function Contact() {
     setIsSubmitting(true);
     setErrorMsg("");
 
-    // Simulate API Submission
-    setTimeout(() => {
+    try {
+      const result = await sendContactEmail(formData);
+      if (result.success) {
+        setSubmitSuccess(true);
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          pickupCity: "",
+          dropCity: "",
+          pickupAddress: "",
+          deliveryAddress: "",
+          movingDate: "",
+          moveType: "House",
+          message: "",
+        });
+      } else {
+        setErrorMsg(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMsg("Failed to submit request. Please try again.");
+    } finally {
       setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        pickupCity: "",
-        dropCity: "",
-        pickupAddress: "",
-        deliveryAddress: "",
-        movingDate: "",
-        moveType: "House",
-        message: "",
-      });
-    }, 1500);
+    }
   };
 
   return (
